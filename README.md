@@ -327,11 +327,6 @@ df=stock.get_industry_distribution("20230703","KOSPI")
 # security_market 스키마 생성
 # db.secret폴더에 scretes.txt 파일 생성 및 secret_frame.txt와 같이 mysqldb password 입력
 
-
-![db_stored](https://github.com/harimha/krxdata_pub/assets/46281167/b0add653-e649-4575-9fcd-b0c25c68046e)
-![db_schema](https://github.com/harimha/krxdata_pub/assets/46281167/d12080e3-be45-499f-9f76-abe175773bd2)
-
-
 from krxdata_pub.db import index
 
 # 지수 코드 관련 클래스
