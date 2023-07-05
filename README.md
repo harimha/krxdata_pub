@@ -446,8 +446,5 @@ iper.store_data_period("코스피200","20210101","20230705")
 ![index_per](https://github.com/harimha/krxdata_pub/assets/46281167/c9a5174d-f993-4c45-b1ea-f4c8d0e6bcd6)
 
 
-... 이하 설명은 추후 작성
-
-
 
 ```
