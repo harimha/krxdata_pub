@@ -1,0 +1,7 @@
+*.csv
+*.log
+secrets.txt
+debug/
+test/
+custom/
+__pycache__
