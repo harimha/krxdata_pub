@@ -329,12 +329,20 @@ df=stock.get_industry_distribution("20230703","KOSPI")
 
 from krxdata_pub.db import index
 
+# db 생성시 schema
+```
+![db_schema](https://github.com/harimha/krxdata_pub/assets/46281167/788237c7-784a-49bf-953e-33acdb137e5a)
+
+```python
 # 지수 코드 관련 클래스
 icode = index.IndexCode()
 
 # mysql db에 저장
 icode.store_data()
+```
+![index_code](https://github.com/harimha/krxdata_pub/assets/46281167/2dfcab99-fc0d-41ab-9f38-3fb8f8746845)
 
+```python
 # db에서 원하는 칼럼만 data 불러오기
 df = icode.read_db(["full_code","short_code","index_name"])
 df.head()
@@ -346,8 +354,9 @@ df.head()
 3         1        004     코스피소형주
 4         1        005       음식료품
 '''
+```
 
-
+```python
 # 지수 ohlcv 클래스
 iohlcv = index.IndexOHLCV()
 
@@ -363,7 +372,11 @@ iohlcv.store_data_period("코스피200", "20180101", "20230705")
 코스피200 is stored 2022-01-01~2022-12-31
 코스피200 is stored 2023-01-01~2023-07-05
 '''
+```
+![index_ohlcv](https://github.com/harimha/krxdata_pub/assets/46281167/8a937cbe-3007-4f20-aebb-c8c4797b8c4a)
 
+
+```python
 # db에서 원하는 칼럼, 특정 기간 data 불러오기
 df = iohlcv.read_db("코스피200", ["일자","종가","상장시가총액"], "20230101", "20230705")
 '''
@@ -380,7 +393,10 @@ iinfo = index.IndexInfo()
 
 # mysql db에 저장
 iinfo.store_data()
+```
+![index_info](https://github.com/harimha/krxdata_pub/assets/46281167/a32397f0-df60-4abc-af65-39db13d8c4a4)
 
+```python
 # db에서 원하는 칼럼만 data 불러오기
 df = iinfo.read_db(['지수명', '기준일', '발표일','구성종목수'])
 '''
@@ -392,13 +408,16 @@ df = iinfo.read_db(['지수명', '기준일', '발표일','구성종목수'])
 154     통신장비     1996-07-01    1997-01-03     53
 155       화학     1980-01-04    1983-01-04    103
 '''
-
+```
+```python
 # 지수 구성종목 클래스
 icompo = index.IndexComponents()
 
 # 특정지수, 조회일자 지수 구성종목 정보 db에 저장
 icompo.store_data("코스피200", "20230703")
-
+```
+![index_components](https://github.com/harimha/krxdata_pub/assets/46281167/1df83d19-a64d-433a-a594-d2943c768c8e)
+```python
 # db에서 원하는 칼럼만 data 불러오기
 df = icompo.read_db(['종목코드', '종목명', '조회일', '지수명'])
 df.head()
@@ -410,7 +429,8 @@ df.head()
 3  000150      두산        2023-07-03  코스피200
 4  000210      DL         2023-07-03  코스피200
 '''
-
+```
+```python
 # 지수 PER 데이터 조회 
 iper = index.IndexPER()
 
@@ -422,9 +442,11 @@ iper.store_data_period("코스피200","20210101","20230705")
 코스피200 is stored 2022-01-02~2023-01-01
 코스피200 is stored 2023-01-02~2023-07-05
 '''
+```
+![index_per](https://github.com/harimha/krxdata_pub/assets/46281167/c9a5174d-f993-4c45-b1ea-f4c8d0e6bcd6)
 
 
-# ... 이하 설명은 추후 작성
+... 이하 설명은 추후 작성
 
 
 
